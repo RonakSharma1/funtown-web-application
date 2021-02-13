@@ -1,5 +1,5 @@
-import '../CSS/Header.css';
-import party from '../Media/party.gif'
+import '../../CSS/MainApp/Header.css';
+import party from '../../Media/party.gif'
 
 function Header (props) {
     return(
@@ -15,6 +15,7 @@ function Header (props) {
             >
                 Synergising Fun and Work
             </a>
+            <p>Aim: To experiment with React, Axios and Express for understanding web development</p>
         </div>
     );
 }
