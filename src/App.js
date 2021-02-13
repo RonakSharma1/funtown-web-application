@@ -4,6 +4,7 @@ import Header from './Components/MainApp/Header.js';
 import ExperimentOne from './Components/ExperimentOne/ExperimentOne.js';
 import ExperimentTwo from './Components/ExperimentTwo/ExperimentTwo.js';
 
+
 function App() {
   // Button States
   const [headerState, setHeaderState]=useState(true);
@@ -37,8 +38,8 @@ function App() {
         </div>
 
         <div>
-          {<button onClick={handleExperimentOneEvent}>Experiment 1</button>}
-          {<button onClick={handleExperimentTwoEvent}>Experiment 2</button>}
+          {headerState && <button onClick={handleExperimentOneEvent}>Experiment 1</button>}
+          {headerState && <button onClick={handleExperimentTwoEvent}>Experiment 2</button>}
         </div>
       </div>
   );
