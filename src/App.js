@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import Header from './Components/MainApp/Header.js';
+import Header from './Components/MainApp/MainAppHeader.js';
 import ExperimentOne from './Components/ExperimentOne/ExperimentOne.js';
 import ExperimentTwo from './Components/ExperimentTwo/ExperimentTwo.js';
 

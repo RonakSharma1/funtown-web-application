@@ -1,8 +1,11 @@
+import ExperimentOneHeader from '../ExperimentOne/ExperimentOneHeader.js'
+import ExperimentOneUserForm from './ExperimentOneUserForm.js'
 function ExperimentOne(props){
 
     return(
         <div>
-            <h1>Welcome to Experiment 1</h1>
+            <ExperimentOneHeader/>
+            <ExperimentOneUserForm/>
             <button onClick={props.isBackButtonClicked}>Back to Main Arena</button>
         </div>
     );

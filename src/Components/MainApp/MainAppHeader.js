@@ -1,4 +1,4 @@
-import '../../CSS/MainApp/Header.css';
+import '../../CSS/MainApp/MainAppHeader.css';
 import party from '../../Media/party.gif'
 
 function Header (props) {
