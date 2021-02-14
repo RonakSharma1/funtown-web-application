@@ -39,11 +39,6 @@ function ExperimentOneUserForm(props){
                     </select>
                 </label>
                 <br />
-                <label>
-
-
-                </label>
-                <br />
                 <input type="submit" value="Submit"/>
             </form>
         </div> 
