@@ -1,6 +1,10 @@
 function ExperimentOne(props){
+
     return(
-        <h1>Welcome to Experiment 1</h1>
+        <div>
+            <h1>Welcome to Experiment 1</h1>
+            <button onClick={props.isBackButtonClicked}>Back to Main Arena</button>
+        </div>
     );
 }
 

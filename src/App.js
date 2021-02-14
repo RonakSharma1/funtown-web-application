@@ -11,10 +11,6 @@ function App() {
   const [experimentOneButtonState,setExperimentOneButtonState ]=useState(false);
   const [experimentTwoButtonState,setExperimentTwoButtonState]=useState(false);
 
-  // if(experimentOneButtonState || experimentTwoButtonState){
-  //   setHeaderState(!headerState);
-  // }
-
   const handleExperimentOneEvent=()=>
   {
     setExperimentOneButtonState(true);
@@ -29,11 +25,18 @@ function App() {
     setHeaderState(false);
   }
 
+  const backButtonState=()=>
+  {
+    setExperimentOneButtonState(false);
+    setExperimentTwoButtonState(false);
+    setHeaderState(true);
+  }
+
   return (
       <div>
         <div>
           {headerState && <Header/>}
-          {experimentOneButtonState && <ExperimentOne/>}
+          {experimentOneButtonState && <ExperimentOne isBackButtonClicked={backButtonState}/>}
           {experimentTwoButtonState && <ExperimentTwo />}
         </div>
 
