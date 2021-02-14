@@ -2,19 +2,23 @@ import React, { useState } from 'react';
  
 function ExperimentOneUserForm(props){
 
+    const activityTypes=["social", "recreational", "busywork", "diy", "charity", "cooking", "relaxation", "music", "educational"];
     const [userName,setUserName]=useState("");
-    const [userFood,setUserFood]=useState("");
+    const [numberOfParticipants,setNumberOfParticipants]=useState("");
 
     const handleUserNameChange=(event)=>{
         setUserName(event.target.value)
     }
-    const handleFoodChange=(event)=>{
-        setUserFood(event.target.value)
+    const handleNumberOfParticipants=(event)=>{
+        setNumberOfParticipants(event.target.value)
     }
     const handleSubmit=(event)=>{
         event.preventDefault();
-        alert("The user is called "+userName+" and his favourite food is "+userFood);
+        let randomActivity = activityTypes[Math.floor(Math.random() * activityTypes.length)];
+        alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+ 
+        ". Based on your personality, I would suggest doing something "+randomActivity);
     }
+
     return(
         <div>
             <form onSubmit={handleSubmit}>
@@ -24,13 +28,20 @@ function ExperimentOneUserForm(props){
                 </label>
                 <br />
                 <label>
-                    What is your desirable food from the list:
-                    <select onChange={handleFoodChange}>
-                    <option value="pizza">Pizza</option>
-                    <option value="burger">Burger</option>
-                    <option value="pasta">Pasta</option>
-                    <option value="cheesecake">Cheesecake</option>
+                Lets find your unique character something fun to do.
+                How many friends do you wanna enjoy with:
+                    <select onChange={handleNumberOfParticipants}>
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
+                    <option value="four">4</option>
+                    <option value="five">5</option>
                     </select>
+                </label>
+                <br />
+                <label>
+
+
                 </label>
                 <br />
                 <input type="submit" value="Submit"/>
