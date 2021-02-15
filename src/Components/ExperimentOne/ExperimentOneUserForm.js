@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import BoredAPICaller from './BoredAPICaller.js'
  
+function DisplayUserRecommendationBasedOnQuery(userActivityFromApi,userActivityTypeFromApi){
+    alert("Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of " +
+    userActivityTypeFromApi + ". Therefore, maybe try "+userActivityFromApi);
+}
+
 function ExperimentOneUserForm(props){
 
     const activityTypes=["social", "recreational", "busywork", "diy", "charity", "cooking", "relaxation", "music", "educational"];
@@ -25,7 +30,6 @@ function ExperimentOneUserForm(props){
         // alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+ 
         // ". Based on your personality, I would suggest doing something "+randomActivity);
     }
-
     return(
         <div>
             <form onSubmit={handleSubmit}>
@@ -51,8 +55,10 @@ function ExperimentOneUserForm(props){
             {isSubmitPressed && <BoredAPICaller 
             isSubmitPressed={isSubmitPressed} 
             numberOfParticipants={numberOfParticipants}
-            userActivity={userActivity}/>
+            userActivity={userActivity}
+            userRecommendationsFromApi={DisplayUserRecommendationBasedOnQuery}/>
             }
+            {/* {isSubmitPressed && <DisplayUserRecommendationBasedOnQuery/>} */}
         </div> 
     );
 }

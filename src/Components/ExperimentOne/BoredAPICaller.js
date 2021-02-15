@@ -11,7 +11,8 @@ function BoredAPICaller(props){
                 participants:props.numberOfParticipants
             }})
         .then(response =>{
-            console.log(response.data);
+            console.log(response.data.activity+response.data.type);
+            props.userRecommendationsFromApi(response.data.activity,response.data.type);
         })
         .catch(error=>{
             console.log(error.message);
@@ -22,8 +23,7 @@ function BoredAPICaller(props){
                                 // undergo re-rendering as the useEffect would never be called. Hence
                                 // the props.attribute is used to fetch API when those changes
     return(
-        <div>
-        </div>
+        <div/>
     );
 }
 export default BoredAPICaller;
