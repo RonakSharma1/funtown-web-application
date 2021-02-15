@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
+import BoredAPICaller from './BoredAPICaller.js'
  
 function ExperimentOneUserForm(props){
 
     const activityTypes=["social", "recreational", "busywork", "diy", "charity", "cooking", "relaxation", "music", "educational"];
     const [userName,setUserName]=useState("");
-    const [numberOfParticipants,setNumberOfParticipants]=useState("");
+    const [numberOfParticipants,setNumberOfParticipants]=useState("1");
+    const [isSubmitPressed,setIsSubmitPressed]=useState(false);
+    const [userActivity,setUserActivity]=useState("social");
 
     const handleUserNameChange=(event)=>{
         setUserName(event.target.value)
+        setIsSubmitPressed(false);
     }
     const handleNumberOfParticipants=(event)=>{
         setNumberOfParticipants(event.target.value)
+        setIsSubmitPressed(false);
     }
     const handleSubmit=(event)=>{
         event.preventDefault();
         let randomActivity = activityTypes[Math.floor(Math.random() * activityTypes.length)];
-        alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+ 
-        ". Based on your personality, I would suggest doing something "+randomActivity);
+        setUserActivity(randomActivity);
+        setIsSubmitPressed(true);
+        // alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+ 
+        // ". Based on your personality, I would suggest doing something "+randomActivity);
     }
 
     return(
@@ -31,16 +38,21 @@ function ExperimentOneUserForm(props){
                 Lets find your unique character something fun to do.
                 How many friends do you wanna enjoy with:
                     <select onChange={handleNumberOfParticipants}>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                    <option value="three">3</option>
-                    <option value="four">4</option>
-                    <option value="five">5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                     </select>
                 </label>
                 <br />
                 <input type="submit" value="Submit"/>
             </form>
+            {isSubmitPressed && <BoredAPICaller 
+            isSubmitPressed={isSubmitPressed} 
+            numberOfParticipants={numberOfParticipants}
+            userActivity={userActivity}/>
+            }
         </div> 
     );
 }
