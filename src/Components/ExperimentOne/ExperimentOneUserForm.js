@@ -3,7 +3,7 @@ import BoredAPICaller from './BoredAPICaller.js'
  
 function DisplayUserRecommendationBasedOnQuery(userActivityFromApi,userActivityTypeFromApi){
     alert("Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of " +
-    userActivityTypeFromApi + ". Therefore, maybe try "+userActivityFromApi);
+    userActivityTypeFromApi + ". Therefore, maybe try "+userActivityFromApi.toLowerCase());
 }
 
 function ExperimentOneUserForm(props){
