@@ -58,7 +58,7 @@ function ExperimentOneUserForm(props){
             userActivity={userActivity}
             userRecommendationsFromApi={DisplayUserRecommendationBasedOnQuery}/>
             }
-            {/* {isSubmitPressed && <DisplayUserRecommendationBasedOnQuery/>} */}
+            <p style={{ color: isSubmitPressed? 'orange': 'black' }}>Testing for Inline Styling</p>
         </div> 
     );
 }
