@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import BoredAPICaller from './BoredAPICaller.js'
+import BoredAPICaller from '../../ApiTemplates/BoredAPICaller.js'
+
  
 function DisplayUserRecommendationBasedOnQuery(userActivityFromApi,userActivityTypeFromApi){
     alert("Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of " +

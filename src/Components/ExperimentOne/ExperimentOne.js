@@ -1,6 +1,5 @@
 import ExperimentOneHeader from './ExperimentOneHeader.js'
 import ExperimentOneUserForm from './ExperimentOneUserForm.js'
-import BoredAPIResponse from './BoredAPICaller.js'
 
 function ExperimentOne(props){
 
