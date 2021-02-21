@@ -2,16 +2,16 @@ import axios from 'axios';
 import React, { useEffect} from 'react';
 
 function BoredAPICaller(props){
-    const boredApiUrl="http://www.boredapi.com/api/activity/"
+    const expressServerBoredApiUrl="http://localhost:5000/boredApi"
+
     useEffect(()=>{
         const boredApiData= async () =>{
-            await axios.get(boredApiUrl, {
+            await axios.get(expressServerBoredApiUrl, {
             params: {
-                // type: props.userActivity,
                 participants:props.numberOfParticipants
             }})
         .then(response =>{
-            console.log(response.data.activity+response.data.type);
+            // console.log(response.data.activity+response.data.type+response.data.participants);
             props.userRecommendationsFromApi(response.data.activity,response.data.type);
         })
         .catch(error=>{
