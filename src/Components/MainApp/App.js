@@ -7,42 +7,23 @@ import ExperimentTwo from '../ExperimentTwo/ExperimentTwo.js';
 
 function App() {
   // Button States
-  const [headerState, setHeaderState]=useState(true);
-  const [experimentOneButtonState,setExperimentOneButtonState ]=useState(false);
-  const [experimentTwoButtonState,setExperimentTwoButtonState]=useState(false);
+  const[experimentButtonState,setExperimentButtonState]=useState('0')
 
-  const handleExperimentOneEvent=()=>
-  {
-    setExperimentOneButtonState(true);
-    setExperimentTwoButtonState(false);
-    setHeaderState(false);
+  const handleExperimentButtonState = (experimentButtonSelected)=>{
+    setExperimentButtonState(experimentButtonSelected);
   }
-
-  const handleExperimentTwoEvent=()=>
-  {
-    setExperimentTwoButtonState(true);
-    setExperimentOneButtonState(false);
-    setHeaderState(false);
-  }
-
-  const backButtonState=()=>
-  {
-    setExperimentOneButtonState(false);
-    setExperimentTwoButtonState(false);
-    setHeaderState(true);
-  }
-
+  
   return (
       <div>
         <div>
-          {headerState && <Header/>}
-          {experimentOneButtonState && <ExperimentOne isBackButtonClicked={backButtonState}/>}
-          {experimentTwoButtonState && <ExperimentTwo />}
+          {(experimentButtonState === '0') && <Header/>}
+          {(experimentButtonState === '1') && <ExperimentOne isBackButtonClicked={()=>{setExperimentButtonState('0')}}/>}
+          {(experimentButtonState === '2') && <ExperimentTwo />}
         </div>
 
         <div>
-          {headerState && <button onClick={handleExperimentOneEvent}>Experiment 1</button>}
-          {headerState && <button onClick={handleExperimentTwoEvent}>Experiment 2</button>}
+          {(experimentButtonState === '0') && <button onClick={()=>{handleExperimentButtonState('1')}}>Experiment 1</button>}
+          {(experimentButtonState === '0') && <button onClick={()=>{handleExperimentButtonState('2')}}>Experiment 2</button>}
         </div>
       </div>
   );
