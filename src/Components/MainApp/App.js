@@ -8,6 +8,16 @@ import ExperimentTwo from '../ExperimentTwo/ExperimentTwo.js';
 function App() {
   // Button States
   const[experimentButtonState,setExperimentButtonState]=useState('0')
+  const experimentButtons=[
+    {
+      name: 'Experiment 1',
+      id : '1'
+    },
+    {
+      name: 'Experiment 2',
+      id:'2'
+    }
+  ];
 
   const handleExperimentButtonState = (experimentButtonSelected)=>{
     setExperimentButtonState(experimentButtonSelected);
@@ -20,10 +30,12 @@ function App() {
           {(experimentButtonState === '1') && <ExperimentOne isBackButtonClicked={()=>{setExperimentButtonState('0')}}/>}
           {(experimentButtonState === '2') && <ExperimentTwo />}
         </div>
-
         <div>
-          {(experimentButtonState === '0') && <button onClick={()=>{handleExperimentButtonState('1')}}>Experiment 1</button>}
-          {(experimentButtonState === '0') && <button onClick={()=>{handleExperimentButtonState('2')}}>Experiment 2</button>}
+          {
+          experimentButtons.map( button => 
+                  (experimentButtonState === '0') && 
+                  <button key={button.id} onClick={()=>{handleExperimentButtonState(button.id)}}>{button.name}</button>)
+          }
         </div>
       </div>
   );

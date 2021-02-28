@@ -10,6 +10,7 @@ function DisplayUserRecommendationBasedOnQuery(userActivityFromApi,userActivityT
 function ExperimentOneUserForm(props){
 
     const activityTypes=["social", "recreational", "busywork", "diy", "charity", "cooking", "relaxation", "music", "educational"];
+    const listOfParticipants=['1','2','3','4','5']
     const [userName,setUserName]=useState("");
     const [numberOfParticipants,setNumberOfParticipants]=useState("1");
     const [isSubmitPressed,setIsSubmitPressed]=useState(false);
@@ -43,11 +44,9 @@ function ExperimentOneUserForm(props){
                 Lets find your unique character something fun to do.
                 How many friends do you wanna enjoy with:
                     <select onChange={handleNumberOfParticipants}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                       {listOfParticipants.map (participant => 
+                            <option key={participant} value={participant}>{participant}</option>
+                        )}
                     </select>
                 </label>
                 <br />
