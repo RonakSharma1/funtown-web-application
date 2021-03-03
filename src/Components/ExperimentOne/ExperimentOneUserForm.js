@@ -30,6 +30,7 @@ function ExperimentOneUserForm(props) {
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
   const [userActivity, setUserActivity] = useState("social");
+  const roboHashUrl = "https://robohash.org/" + userName + ".png";
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -48,6 +49,7 @@ function ExperimentOneUserForm(props) {
     // alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+
     // ". Based on your personality, I would suggest doing something "+randomActivity);
   };
+  // ANY FEEDBACK FOR REFACTORING THIS BELOW LOOP OR GENERALLY THIS FILE
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -81,6 +83,7 @@ function ExperimentOneUserForm(props) {
       <p style={{ color: isSubmitPressed ? "orange" : "black" }}>
         Testing for Inline Styling
       </p>
+      {isSubmitPressed && <img src={roboHashUrl} alt={"Robot Avatar"} />}
     </div>
   );
 }
