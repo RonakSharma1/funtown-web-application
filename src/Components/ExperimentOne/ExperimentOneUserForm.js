@@ -27,7 +27,7 @@ function ExperimentOneUserForm(props) {
   ];
   const listOfParticipants = [1, 2, 3, 4, 5];
   const [userName, setUserName] = useState("");
-  const [numberOfParticipants, setNumberOfParticipants] = useState("1");
+  const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
   const [userActivity, setUserActivity] = useState("social");
 

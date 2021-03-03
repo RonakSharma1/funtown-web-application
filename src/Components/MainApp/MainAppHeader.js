@@ -1,7 +1,7 @@
 import "../../CSS/MainApp/MainAppHeader.css";
 import party from "../../Media/party.gif";
 
-function Header(props) {
+const Header = () => {
   return (
     <div className="header">
       <img
@@ -29,5 +29,5 @@ function Header(props) {
       </p>
     </div>
   );
-}
+};
 export default Header;

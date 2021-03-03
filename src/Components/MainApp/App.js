@@ -6,33 +6,33 @@ import ExperimentTwo from "../ExperimentTwo/ExperimentTwo.js";
 
 function App() {
   // Button States
-  const [experimentButtonState, setExperimentButtonState] = useState("0");
+  const [experimentButtonState, setExperimentButtonState] = useState(null);
   const experimentButtons = [
     {
       name: "Experiment 1",
-      id: "1",
+      id: 1,
     },
     {
       name: "Experiment 2",
-      id: "2",
+      id: 2,
     },
   ];
 
   return (
     <div>
       <div>
-        {experimentButtonState === "0" && <Header />}
-        {experimentButtonState === "1" && (
+        {experimentButtonState === null && <Header />}
+        {experimentButtonState === 1 && (
           <ExperimentOne
-            isBackButtonClicked={() => setExperimentButtonState("0")}
+            isBackButtonClicked={() => setExperimentButtonState(null)}
           />
         )}
-        {experimentButtonState === "2" && <ExperimentTwo />}
+        {experimentButtonState === 2 && <ExperimentTwo />}
       </div>
       <div>
         {experimentButtons.map(
           (button) =>
-            experimentButtonState === "0" && (
+            experimentButtonState === null && (
               <button
                 key={button.id}
                 onClick={() => setExperimentButtonState(button.id)}
