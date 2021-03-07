@@ -6,7 +6,17 @@ const ExperimentOne = (props) => {
     <div>
       <ExperimentOneHeader />
       <ExperimentOneDisplayInformation />
-      <button onClick={props.isBackButtonClicked}>Back to Main Arena</button>
+      <button
+        style={{
+          fontSize: "20px",
+          backgroundColor: "black",
+          color: "white",
+          margin: "20px 500px",
+        }}
+        onClick={props.isBackButtonClicked}
+      >
+        Back to Main Arena
+      </button>
     </div>
   );
 };
