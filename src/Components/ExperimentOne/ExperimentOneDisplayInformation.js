@@ -3,9 +3,9 @@ import BoredAPICaller from "../../ApiTemplates/BoredAPICaller.js";
 import ExperimentOneUserForm from "./ExperimentOneUserForm.js";
 
 const ExperimentOneDisplayInformation = (props) => {
-  const roboHashUrl = "https://robohash.org/" + userName + ".png?size=200x200";
-
   const [userName, setUserName] = useState("");
+  // const roboHashUrl = "https://robohash.org/" + userName + ".png?size=200x200";
+
   const [submitButtonState, setSubmitButtonState] = useState(false);
   const [userActivityType, setUserActivityType] = useState("social");
   const [userActivityDescription, setUserActivityDescription] = useState(
