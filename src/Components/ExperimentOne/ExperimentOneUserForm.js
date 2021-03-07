@@ -1,36 +1,10 @@
-import React, { useState } from "react";
-import BoredAPICaller from "../../ApiTemplates/BoredAPICaller.js";
-
-function DisplayUserRecommendationBasedOnQuery(
-  userActivityFromApi,
-  userActivityTypeFromApi
-) {
-  alert(
-    "Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of " +
-      userActivityTypeFromApi +
-      ". Therefore, maybe try " +
-      userActivityFromApi.toLowerCase()
-  );
-}
+import React, { useState, useEffect } from "react";
 
 function ExperimentOneUserForm(props) {
-  const activityTypes = [
-    "social",
-    "recreational",
-    "busywork",
-    "diy",
-    "charity",
-    "cooking",
-    "relaxation",
-    "music",
-    "educational",
-  ];
   const listOfParticipants = [1, 2, 3, 4, 5];
   const [userName, setUserName] = useState("");
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
-  const [userActivity, setUserActivity] = useState("social");
-  const roboHashUrl = "https://robohash.org/" + userName + ".png";
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -40,16 +14,16 @@ function ExperimentOneUserForm(props) {
     setNumberOfParticipants(event.target.value);
     setIsSubmitPressed(false);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    let randomActivity =
-      activityTypes[Math.floor(Math.random() * activityTypes.length)];
-    setUserActivity(randomActivity);
     setIsSubmitPressed(true);
-    // alert("The user is called "+userName+" and number of friends free today are "+numberOfParticipants+
-    // ". Based on your personality, I would suggest doing something "+randomActivity);
   };
-  // ANY FEEDBACK FOR REFACTORING THIS BELOW LOOP OR GENERALLY THIS FILE
+
+  useEffect(() => {
+    props.userInfoFormData(userName, numberOfParticipants, isSubmitPressed);
+  }, [isSubmitPressed]);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -72,18 +46,9 @@ function ExperimentOneUserForm(props) {
         <br />
         <input type="submit" value="Submit" />
       </form>
-      {isSubmitPressed && (
-        <BoredAPICaller
-          isSubmitPressed={isSubmitPressed}
-          numberOfParticipants={numberOfParticipants}
-          userActivity={userActivity}
-          userRecommendationsFromApi={DisplayUserRecommendationBasedOnQuery}
-        />
-      )}
       <p style={{ color: isSubmitPressed ? "orange" : "black" }}>
         Testing for Inline Styling
       </p>
-      {isSubmitPressed && <img src={roboHashUrl} alt={"Robot Avatar"} />}
     </div>
   );
 }

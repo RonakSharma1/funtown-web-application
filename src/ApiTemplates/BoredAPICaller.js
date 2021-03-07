@@ -25,7 +25,7 @@ function BoredAPICaller(props) {
         console.log(error.message);
       }
     })();
-  }, [props.isSubmitPressed]); // Removing the array doesn't work as no element here will
+  }, [props.isSubmitButtonPressed]); // Removing the array doesn't work as no element here will
   // undergo re-rendering as the useEffect would never be called. Hence
   // the props.attribute is used to fetch API when those changes
   return <div />;
