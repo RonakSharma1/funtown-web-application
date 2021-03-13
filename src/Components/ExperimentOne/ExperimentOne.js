@@ -2,19 +2,18 @@ import ExperimentOneDisplayInformation from "./ExperimentOneDisplayInformation.j
 import ExperimentOneHeader from "./ExperimentOneHeader.js";
 
 const ExperimentOne = (props) => {
+  const { isBackButtonClicked } = props;
+  const backButtonStyle = {
+    fontSize: "20px",
+    backgroundColor: "black",
+    color: "white",
+    margin: "20px 500px",
+  };
   return (
     <div>
       <ExperimentOneHeader />
       <ExperimentOneDisplayInformation />
-      <button
-        style={{
-          fontSize: "20px",
-          backgroundColor: "black",
-          color: "white",
-          margin: "20px 500px",
-        }}
-        onClick={props.isBackButtonClicked}
-      >
+      <button style={backButtonStyle} onClick={isBackButtonClicked}>
         Back to Main Arena
       </button>
     </div>
