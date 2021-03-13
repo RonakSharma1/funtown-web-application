@@ -45,8 +45,12 @@ const ExperimentOneDisplayInformation = (props) => {
           userRecommendationsFromApi={storeUserPreferencesFromApi}
         />
       )}
-      {submitButtonState && <p>{userOutputMessage}</p>}
-      {submitButtonState && <img src={roboHashUrl} alt={"Robot Avatar"} />}
+      {submitButtonState && (
+        <div>
+          <p>{userOutputMessage}</p>
+          <img src={roboHashUrl} alt={"Robot Avatar"} />
+        </div>
+      )}
     </React.Fragment>
   );
 };
