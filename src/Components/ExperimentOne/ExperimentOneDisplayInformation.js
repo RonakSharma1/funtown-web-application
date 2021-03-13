@@ -36,7 +36,7 @@ const ExperimentOneDisplayInformation = (props) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <ExperimentOneUserForm userInfoFormData={storeFormData} />
       {submitButtonState && (
         <BoredAPICaller
@@ -47,7 +47,7 @@ const ExperimentOneDisplayInformation = (props) => {
       )}
       {submitButtonState && <p>{userOutputMessage}</p>}
       {submitButtonState && <img src={roboHashUrl} alt={"Robot Avatar"} />}
-    </div>
+    </React.Fragment>
   );
 };
 
