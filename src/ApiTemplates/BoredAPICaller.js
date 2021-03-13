@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 
 function BoredAPICaller(props) {
   const expressServerBoredApiUrl = "http://localhost:5000/boredApi";
+  const { isSubmitButtonPressed } = props; // Destructuring
 
   useEffect(() => {
     (async () => {
@@ -25,7 +26,7 @@ function BoredAPICaller(props) {
         console.log(error.message);
       }
     })();
-  }, [props.isSubmitButtonPressed]); // Removing the array doesn't work as no element here will
+  }, [isSubmitButtonPressed]); // Removing the array doesn't work as no element here will
   // undergo re-rendering as the useEffect would never be called. Hence
   // the props.attribute is used to fetch API when those changes
   return <div />;
