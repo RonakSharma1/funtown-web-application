@@ -4,7 +4,7 @@ import ExperimentOneUserForm from "./ExperimentOneUserForm.js";
 
 const ExperimentOneDisplayInformation = (props) => {
   const [userName, setUserName] = useState("");
-  const roboHashUrl = "https://robohash.org/" + userName + ".png?size=200x200";
+  const roboHashUrl = `https://robohash.org/${userName}.png?size=200x200`;
 
   const [submitButtonState, setSubmitButtonState] = useState(false);
   const [userActivityType, setUserActivityType] = useState("social");
@@ -12,14 +12,8 @@ const ExperimentOneDisplayInformation = (props) => {
     "Stare at wall"
   );
 
-  const userOutputMessage =
-    "Hey " +
-    userName +
-    ". Based on what you have told me, I would suggest doing something along the lines of " +
-    userActivityType +
-    ". Therefore, maybe try " +
-    userActivityDescription.toLowerCase() +
-    ". Also look what I found below. This is how you would look in a Robot conquered world \u2728";
+  const userOutputMessage = `Hey ${userName}. Based on what you have told me, I would suggest doing something along the lines of ${userActivityType}.  
+  Therefore, maybe try ${userActivityDescription.toLowerCase()}. FYI, that avatar you see below, that's how you would look like in a robot apocalypse \u2728 `;
 
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
 
