@@ -36,22 +36,24 @@ const ExperimentOneDisplayInformation = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <ExperimentOneUserForm userInfoFormData={storeFormData} />
-      {submitButtonState && (
-        <BoredAPICaller
-          isSubmitButtonPressed={submitButtonState}
-          numberOfParticipants={numberOfParticipants}
-          userRecommendationsFromApi={storeUserPreferencesFromApi}
-        />
-      )}
+    <>
+      <>
+        <ExperimentOneUserForm userInfoFormData={storeFormData} />
+        {submitButtonState && (
+          <BoredAPICaller
+            isSubmitButtonPressed={submitButtonState}
+            numberOfParticipants={numberOfParticipants}
+            userRecommendationsFromApi={storeUserPreferencesFromApi}
+          />
+        )}
+      </>
       {submitButtonState && (
         <div>
           <p>{userOutputMessage}</p>
           <img src={roboHashUrl} alt={"Robot Avatar"} />
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
