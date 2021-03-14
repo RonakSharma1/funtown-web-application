@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-function BoredAPICaller(props) {
+function BoredAPICaller(props, isSubmitButtonPressed) {
   const expressServerBoredApiUrl = "http://localhost:5000/boredApi";
-  const { isSubmitButtonPressed } = props; // Destructuring
 
   useEffect(() => {
     (async () => {
