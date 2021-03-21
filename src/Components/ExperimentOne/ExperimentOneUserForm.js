@@ -1,45 +1,45 @@
-import { useState } from 'react';
-import BoredAPICaller from '../../ApiTemplates/BoredAPICaller.js';
+import { useState } from "react";
+import BoredAPICaller from "../../ApiTemplates/BoredAPICaller.js";
 
 function DisplayUserRecommendationBasedOnQuery(
   userActivityFromApi,
   userActivityTypeFromApi
 ) {
   alert(
-    'Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of ' +
+    "Hey XYZ. Based on what you have told me, I would suggest doing something along the lines of " +
       userActivityTypeFromApi +
-      '. Therefore, maybe try ' +
+      ". Therefore, maybe try " +
       userActivityFromApi.toLowerCase()
   );
 }
 
 function ExperimentOneUserForm() {
   const activityTypes = [
-    'social',
-    'recreational',
-    'busywork',
-    'diy',
-    'charity',
-    'cooking',
-    'relaxation',
-    'music',
-    'educational',
+    "social",
+    "recreational",
+    "busywork",
+    "diy",
+    "charity",
+    "cooking",
+    "relaxation",
+    "music",
+    "educational",
   ];
   const listOfParticipants = [1, 2, 3, 4, 5];
-  const [, setUserName] = useState('');
+  const [, setUserName] = useState("");
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
-  const [userActivity, setUserActivity] = useState('social');
+  const [userActivity, setUserActivity] = useState("social");
 
-  const handleUserNameChange = event => {
+  const handleUserNameChange = (event) => {
     setUserName(event.target.value);
     setIsSubmitPressed(false);
   };
-  const handleNumberOfParticipants = event => {
+  const handleNumberOfParticipants = (event) => {
     setNumberOfParticipants(event.target.value);
     setIsSubmitPressed(false);
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let randomActivity =
       activityTypes[Math.floor(Math.random() * activityTypes.length)];
@@ -53,14 +53,14 @@ function ExperimentOneUserForm() {
       <form onSubmit={handleSubmit}>
         <label>
           What is your name:
-          <input name='userName' type='text' onChange={handleUserNameChange} />
+          <input name="userName" type="text" onChange={handleUserNameChange} />
         </label>
         <br />
         <label>
           Lets find your unique character something fun to do. How many friends
           do you wanna enjoy with:
           <select onChange={handleNumberOfParticipants}>
-            {listOfParticipants.map(participant => (
+            {listOfParticipants.map((participant) => (
               <option key={participant} value={participant}>
                 {parseInt(participant)}
               </option>
@@ -68,7 +68,7 @@ function ExperimentOneUserForm() {
           </select>
         </label>
         <br />
-        <input type='submit' value='Submit' />
+        <input type="submit" value="Submit" />
       </form>
       {isSubmitPressed && (
         <BoredAPICaller
@@ -78,7 +78,7 @@ function ExperimentOneUserForm() {
           userRecommendationsFromApi={DisplayUserRecommendationBasedOnQuery}
         />
       )}
-      <p style={{ color: isSubmitPressed ? 'orange' : 'black' }}>
+      <p style={{ color: isSubmitPressed ? "orange" : "black" }}>
         Testing for Inline Styling
       </p>
     </div>

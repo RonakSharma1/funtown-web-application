@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { useEffect } from 'react';
+import axios from "axios";
+import { useEffect } from "react";
 
 function BoredAPICaller(props) {
-  const expressServerBoredApiUrl = 'http://localhost:5000/boredApi';
+  const expressServerBoredApiUrl = "http://localhost:5000/boredApi";
 
   useEffect(() => {
     (async () => {
