@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function ExperimentOneUserForm(props) {
   const listOfParticipants = [1, 2, 3, 4, 5];
@@ -9,23 +9,19 @@ function ExperimentOneUserForm(props) {
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
     setIsSubmitPressed(false);
-    props.userInfoFormData(userName, numberOfParticipants, false);
+    // props.userInfoFormData(userName, numberOfParticipants, false);
   };
   const handleNumberOfParticipants = (event) => {
     setNumberOfParticipants(event.target.value);
     setIsSubmitPressed(false);
-    props.userInfoFormData(userName, numberOfParticipants, false);
+    // props.userInfoFormData(userName, numberOfParticipants, false);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitPressed(true);
-    props.userInfoFormData(userName, numberOfParticipants, true);
+    props.userInfoFormData(userName, numberOfParticipants);
   };
-
-  // useEffect(() => {
-  //   props.userInfoFormData(userName, numberOfParticipants, isSubmitPressed);
-  // }, [isSubmitPressed]);
 
   return (
     <div>
