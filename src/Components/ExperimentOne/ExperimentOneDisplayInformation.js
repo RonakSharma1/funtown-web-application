@@ -6,7 +6,6 @@ const ExperimentOneDisplayInformation = () => {
   const [userName, setUserName] = useState("Robot");
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const roboHashUrl = `https://robohash.org/${userName}.png?size=200x200`;
-  const [boredApiState, setBoredApiState] = useState(false);
 
   const [userActivityType, setUserActivityType] = useState("social");
   const [userActivityDescription, setUserActivityDescription] = useState(

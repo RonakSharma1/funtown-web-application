@@ -9,12 +9,10 @@ function ExperimentOneUserForm(props) {
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
     setIsSubmitPressed(false);
-    // props.userInfoFormData(userName, numberOfParticipants, false);
   };
   const handleNumberOfParticipants = (event) => {
     setNumberOfParticipants(event.target.value);
     setIsSubmitPressed(false);
-    // props.userInfoFormData(userName, numberOfParticipants, false);
   };
 
   const handleSubmit = (event) => {
