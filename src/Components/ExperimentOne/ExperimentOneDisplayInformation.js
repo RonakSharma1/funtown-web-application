@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BoredAPICaller from "../../ApiTemplates/BoredAPICaller.js";
 import ExperimentOneUserForm from "./ExperimentOneUserForm.js";
 
-const ExperimentOneDisplayInformation = (props) => {
+const ExperimentOneDisplayInformation = () => {
   const [userName, setUserName] = useState("");
   const roboHashUrl = `https://robohash.org/${userName}.png?size=200x200`;
 

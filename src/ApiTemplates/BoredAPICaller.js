@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-function BoredAPICaller(props, isSubmitButtonPressed) {
+function BoredAPICaller({
+  isSubmitButtonPressed,
+  numberOfParticipants,
+  userRecommendationsFromApi,
+}) {
   const expressServerBoredApiUrl = "http://localhost:5000/boredApi";
 
   useEffect(() => {
@@ -9,7 +13,7 @@ function BoredAPICaller(props, isSubmitButtonPressed) {
       try {
         const boredApiData = await axios.get(expressServerBoredApiUrl, {
           params: {
-            participants: props.numberOfParticipants,
+            participants: numberOfParticipants,
           },
         });
         console.log(
@@ -17,7 +21,7 @@ function BoredAPICaller(props, isSubmitButtonPressed) {
             boredApiData.data.type +
             boredApiData.data.participants
         );
-        props.userRecommendationsFromApi(
+        userRecommendationsFromApi(
           boredApiData.data.activity,
           boredApiData.data.type
         );

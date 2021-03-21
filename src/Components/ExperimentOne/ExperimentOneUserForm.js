@@ -9,20 +9,23 @@ function ExperimentOneUserForm(props) {
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
     setIsSubmitPressed(false);
+    props.userInfoFormData(userName, numberOfParticipants, false);
   };
   const handleNumberOfParticipants = (event) => {
     setNumberOfParticipants(event.target.value);
     setIsSubmitPressed(false);
+    props.userInfoFormData(userName, numberOfParticipants, false);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitPressed(true);
+    props.userInfoFormData(userName, numberOfParticipants, true);
   };
 
-  useEffect(() => {
-    props.userInfoFormData(userName, numberOfParticipants, isSubmitPressed);
-  }, [isSubmitPressed]);
+  // useEffect(() => {
+  //   props.userInfoFormData(userName, numberOfParticipants, isSubmitPressed);
+  // }, [isSubmitPressed]);
 
   return (
     <div>
