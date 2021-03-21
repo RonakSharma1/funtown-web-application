@@ -1,4 +1,4 @@
-name: CI
+name: PR Builder
 
 on:
   pull_request:
