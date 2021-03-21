@@ -1,19 +1,19 @@
-import "../../CSS/MainApp/App.css";
-import React, { useState } from "react";
-import Header from "./MainAppHeader.js";
-import ExperimentOne from "../ExperimentOne/ExperimentOne.js";
-import ExperimentTwo from "../ExperimentTwo/ExperimentTwo.js";
+import '../../CSS/MainApp/App.css';
+import { useState } from 'react';
+import Header from './MainAppHeader.js';
+import ExperimentOne from '../ExperimentOne/ExperimentOne.js';
+import ExperimentTwo from '../ExperimentTwo/ExperimentTwo.js';
 
 function App() {
   // Button States
   const [experimentButtonState, setExperimentButtonState] = useState(null);
   const experimentButtons = [
     {
-      name: "Experiment 1",
+      name: 'Experiment 1',
       id: 1,
     },
     {
-      name: "Experiment 2",
+      name: 'Experiment 2',
       id: 2,
     },
   ];
@@ -31,7 +31,7 @@ function App() {
       </div>
       <div>
         {experimentButtons.map(
-          (button) =>
+          button =>
             experimentButtonState === null && (
               <button
                 key={button.id}
