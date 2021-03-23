@@ -12,9 +12,9 @@ export default async (numberOfParticipants) => {
       },
     });
     console.log(
-      boredApiData.data.activity +
-        boredApiData.data.type +
-        boredApiData.data.participants
+      boredApiData.data.activity,
+      boredApiData.data.type,
+      boredApiData.data.participants
     );
     return {
       userActivity: boredApiData.data.type,

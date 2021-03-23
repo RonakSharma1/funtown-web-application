@@ -32,14 +32,12 @@ const ExperimentOneDisplayInformation = () => {
 
   return (
     <>
-      <>
-        <ExperimentOneUserForm userInfoFormData={storeFormData} />
-      </>
+      <ExperimentOneUserForm userInfoFormData={storeFormData} />
       {userName !== "Robot" && (
-        <div>
+        <>
           <p>{userOutputMessage}</p>
           <img src={roboHashUrl} alt={"Robot Avatar"} />
-        </div>
+        </>
       )}
     </>
   );

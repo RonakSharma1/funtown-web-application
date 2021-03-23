@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const Button = ({ margins, textToDisplay, onClickListener }) => {
   const backButtonStyle = {
     fontSize: "20px",
