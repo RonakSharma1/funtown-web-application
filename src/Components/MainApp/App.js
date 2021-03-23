@@ -1,5 +1,5 @@
 import "../../CSS/MainApp/App.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./MainAppHeader.js";
 import ExperimentOne from "../ExperimentOne/ExperimentOne.js";
 import ExperimentTwo from "../ExperimentTwo/ExperimentTwo.js";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BoredAPICaller from "../../ApiTemplates/BoredAPICaller.js";
 
 function DisplayUserRecommendationBasedOnQuery(
@@ -13,7 +13,7 @@ function DisplayUserRecommendationBasedOnQuery(
   );
 }
 
-function ExperimentOneUserForm(props) {
+function ExperimentOneUserForm() {
   const activityTypes = [
     "social",
     "recreational",
@@ -26,7 +26,7 @@ function ExperimentOneUserForm(props) {
     "educational",
   ];
   const listOfParticipants = [1, 2, 3, 4, 5];
-  const [userName, setUserName] = useState("");
+  const [, setUserName] = useState("");
   const [numberOfParticipants, setNumberOfParticipants] = useState(1);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
   const [userActivity, setUserActivity] = useState("social");
