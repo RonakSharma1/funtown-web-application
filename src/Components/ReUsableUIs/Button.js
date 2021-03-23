@@ -1,4 +1,4 @@
-const Button = ({ margins, textToDisplay, onClickListener }) => {
+const Button = ({ textToDisplay, onClickListener }) => {
   const backButtonStyle = {
     fontSize: "20px",
     backgroundColor: "black",
