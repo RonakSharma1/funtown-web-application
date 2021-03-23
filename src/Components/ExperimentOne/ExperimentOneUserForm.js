@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function ExperimentOneUserForm(props) {
   const listOfParticipants = [1, 2, 3, 4, 5];

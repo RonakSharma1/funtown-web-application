@@ -1,7 +1,6 @@
 import axios from "axios";
 // Javascript function instead of a component as API caller should be functions and should be called with useEffect
 // Also when returning an empty <div>, it is an indication to convert to a function instead of component
-// eslint-disable-next-line import/no-anonymous-default-export
 export default async (numberOfParticipants) => {
   const expressServerBoredApiUrl = "http://localhost:5000/boredApi";
 
