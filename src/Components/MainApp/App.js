@@ -4,7 +4,7 @@ import Header from "./MainAppHeader.js";
 import ExperimentOne from "../ExperimentOne/ExperimentOne.js";
 import ExperimentTwo from "../ExperimentTwo/ExperimentTwo.js";
 
-function App() {
+const App = () => {
   // Button States
   const [experimentButtonState, setExperimentButtonState] = useState(null);
   const experimentButtons = [
@@ -44,5 +44,5 @@ function App() {
       </div>
     </div>
   );
-}
+};
 export default App;
