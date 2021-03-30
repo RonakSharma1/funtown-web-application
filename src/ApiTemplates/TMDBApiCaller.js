@@ -1,5 +1,5 @@
 import axios from "axios";
-var config = require("../../config");
+var config = require("../config");
 
 export default async () => {
   const tmdbApiKey = config.TMDB.tmdbApiKey;
