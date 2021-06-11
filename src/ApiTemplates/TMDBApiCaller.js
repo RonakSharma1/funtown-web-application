@@ -1,15 +1,16 @@
 import axios from "axios";
 var config = require("../config");
 
-export default async () => {
+export default async (pageNumber) => {
   const tmdbApiKey = config.TMDB.tmdbApiKey;
-  const expressServerTMDBApiUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${tmdbApiKey}`;
+  const expressServerTMDBApiUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${tmdbApiKey}&page=${pageNumber}`;
 
   try {
     const tmdbApiData = await axios.get(expressServerTMDBApiUrl);
-    console.log(tmdbApiData.data);
+    const arrayOfMovies = tmdbApiData.data.results;
+    // console.log(arrayOfMovies);
     return {
-      //Add here to return something in loop
+      listOfTrendingFilms: arrayOfMovies,
     };
   } catch (error) {
     console.log(error.message);
