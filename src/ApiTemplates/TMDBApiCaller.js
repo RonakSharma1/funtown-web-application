@@ -8,7 +8,6 @@ export default async (pageNumber) => {
   try {
     const tmdbApiData = await axios.get(expressServerTMDBApiUrl);
     const arrayOfMovies = tmdbApiData.data.results;
-    // console.log(arrayOfMovies);
     return {
       listOfTrendingFilms: arrayOfMovies,
     };
