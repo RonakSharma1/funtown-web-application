@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
 import TMDBApiCaller from "../../ApiTemplates/TMDBApiCaller.js";
 import Button from "../ReUsableUIs/Button.js";
+import FilmDescriptionPopUp from "../ExperimentTwo/FilmDescriptionPopUp.js";
 
 const TrendingFilmsTable = (props) => {
   const [trendingFilms, setTrendingFilms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filmDescription, setFilmDescription] = useState("Select a movie");
+  const [showPopUp, setShowPopUp] = useState(false);
   // const { id, name, age, email } = student //destructuring data from API
+  const popAndStoreFilmDescription = (filmDescription) => {
+    setFilmDescription(filmDescription);
+    setShowPopUp(true);
+  };
+
+  const hidePopUp = () => {
+    console.log("Hello World");
+    setShowPopUp(false);
+  };
 
   useEffect(() => {
     (async () => {
@@ -30,7 +42,14 @@ const TrendingFilmsTable = (props) => {
         <tbody>
           {trendingFilms.map((film) => (
             <tr key={film.id}>
-              <td>{film.title}</td>
+              <td>
+                <a
+                  href="#"
+                  onClick={() => popAndStoreFilmDescription(film.overview)}
+                >
+                  {film.title}
+                </a>
+              </td>
               <td>{film.vote_average}</td>
               <td>{film.vote_count}</td>
               <td>{film.popularity}</td>
@@ -38,6 +57,12 @@ const TrendingFilmsTable = (props) => {
           ))}
         </tbody>
       </table>
+      {showPopUp && (
+        <FilmDescriptionPopUp
+          filmDescription={filmDescription}
+          handleClose={hidePopUp}
+        />
+      )}
       <Button
         textToDisplay="<< Previous Page "
         onClickListener={() => setCurrentPage(Math.max(1, currentPage - 1))}
