@@ -4,6 +4,7 @@ import TrendingFilmsTable from "../ExperimentTwo/TrendingFilmsTable.js";
 
 const ExperimentTwo = (props) => {
   const [movieButtonState, setMovieButtonState] = useState(null);
+
   if (movieButtonState == null) {
     return (
       <>
@@ -23,7 +24,15 @@ const ExperimentTwo = (props) => {
       </>
     );
   } else {
-    return <>{movieButtonState == 1 && <TrendingFilmsTable />}</>;
+    return (
+      <>
+        {movieButtonState == 1 && (
+          <TrendingFilmsTable
+            backButtonIsPressed={() => setMovieButtonState(null)}
+          />
+        )}
+      </>
+    );
   }
 };
 
