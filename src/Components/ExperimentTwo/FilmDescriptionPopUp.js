@@ -1,14 +1,12 @@
-import Button from "../ReUsableUIs/Button.js";
+import Button from "../common/Button.js";
 import "../../CSS/ExperimentTwo/ModalStyle.css";
 
 const FilmDescriptionPopUp = (props) => {
   return (
     <div className="modal display-block">
       <section className="modal-main">
-        <div className="CloseLayout">
-          <p>{props.filmDescription}</p>
-          <Button textToDisplay="Close" onClickListener={props.handleClose} />
-        </div>
+        <p>{props.filmDescription}</p>
+        <Button text="Close" onClickListener={props.handleClose} />
       </section>
     </div>
   );

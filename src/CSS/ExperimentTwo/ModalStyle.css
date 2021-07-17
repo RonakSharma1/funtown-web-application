@@ -1,8 +1,3 @@
-.CloseLayout {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -23,7 +18,7 @@
 }
 
 .display-block {
-  display: block !important;
+  display: block important;
 }
 
 .display-none {

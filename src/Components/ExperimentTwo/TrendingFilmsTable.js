@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import TMDBApiCaller from "../../ApiTemplates/TMDBApiCaller.js";
-import Button from "../ReUsableUIs/Button.js";
+import Button from "../common/Button.js";
 import FilmDescriptionPopUp from "../ExperimentTwo/FilmDescriptionPopUp.js";
 
 const TrendingFilmsTable = (props) => {
   const [trendingFilms, setTrendingFilms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filmDescription, setFilmDescription] = useState("Select a movie");
+  const [showPreviousButton, setShowPreviousButton] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
   // const { id, name, age, email } = student //destructuring data from API
   const popAndStoreFilmDescription = (filmDescription) => {
@@ -19,12 +20,22 @@ const TrendingFilmsTable = (props) => {
     setShowPopUp(false);
   };
 
+  const displayPreviousButton = () => {
+    if (currentPage - 1 < 1) {
+      setShowPreviousButton(true);
+    } else {
+      setShowPreviousButton(false);
+    }
+  };
+
   useEffect(() => {
     (async () => {
       const tmdbApiData = await TMDBApiCaller(currentPage);
       setTrendingFilms(tmdbApiData.listOfTrendingFilms);
     })();
   }, [currentPage]);
+
+  useEffect(displayPreviousButton);
 
   return (
     <div>
@@ -64,17 +75,15 @@ const TrendingFilmsTable = (props) => {
         />
       )}
       <Button
-        textToDisplay="<< Previous Page "
+        text="<< Previous Page "
         onClickListener={() => setCurrentPage(Math.max(1, currentPage - 1))}
+        disable={showPreviousButton}
       />
       <Button
-        textToDisplay="Next Page >>"
+        text="Next Page >>"
         onClickListener={() => setCurrentPage(currentPage + 1)}
       />
-      <Button
-        textToDisplay="Go Back"
-        onClickListener={props.backButtonIsPressed}
-      />
+      <Button text="Go Back" onClickListener={props.backButtonIsPressed} />
     </div>
   );
 };

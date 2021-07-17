@@ -1,16 +1,13 @@
 import ExperimentOneDisplayInformation from "./ExperimentOneDisplayInformation.js";
 import ExperimentOneHeader from "./ExperimentOneHeader.js";
-import Button from "../ReUsableUIs/Button.js";
+import Button from "../common/Button.js";
 
 const ExperimentOne = ({ isBackButtonClicked }) => {
   return (
     <>
       <ExperimentOneHeader />
       <ExperimentOneDisplayInformation />
-      <Button
-        textToDisplay="Head to Main Arena"
-        onClickListener={isBackButtonClicked}
-      />
+      <Button text="Head to Main Arena" onClickListener={isBackButtonClicked} />
     </>
   );
 };

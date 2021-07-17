@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../ReUsableUIs/Button.js";
+import Button from "../common/Button.js";
 import TrendingFilmsTable from "../ExperimentTwo/TrendingFilmsTable.js";
 
 const ExperimentTwo = (props) => {
@@ -9,16 +9,16 @@ const ExperimentTwo = (props) => {
     return (
       <>
         <Button
-          textToDisplay="What are the Trending Movies these days"
+          text="What are the Trending Movies these days"
           onClickListener={() => setMovieButtonState(1)}
         />
 
-        <Button textToDisplay="Take power and choose your MOVIE" />
+        <Button text="Take power and choose your MOVIE" />
 
-        <Button textToDisplay="Lets recommend you some movies" />
+        <Button text="Lets recommend you some movies" />
 
         <Button
-          textToDisplay="Head to Main Arena"
+          text="Head to Main Arena"
           onClickListener={props.isBackButtonClicked}
         />
       </>
@@ -26,7 +26,7 @@ const ExperimentTwo = (props) => {
   } else {
     return (
       <>
-        {movieButtonState == 1 && (
+        {movieButtonState === 1 && (
           <TrendingFilmsTable
             backButtonIsPressed={() => setMovieButtonState(null)}
           />
