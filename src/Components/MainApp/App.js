@@ -27,7 +27,11 @@ const App = () => {
             isBackButtonClicked={() => setExperimentButtonState(null)}
           />
         )}
-        {experimentButtonState === 2 && <ExperimentTwo />}
+        {experimentButtonState === 2 && (
+          <ExperimentTwo
+            isBackButtonClicked={() => setExperimentButtonState(null)}
+          />
+        )}
       </div>
       <div>
         {experimentButtons.map(
