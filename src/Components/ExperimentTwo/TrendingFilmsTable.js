@@ -4,19 +4,19 @@ import Button from "../common/Button.js";
 import FilmDescriptionPopUp from "../ExperimentTwo/FilmDescriptionPopUp.js";
 
 const TrendingFilmsTable = (props) => {
+  var genreName = {};
   const [trendingFilms, setTrendingFilms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filmDescription, setFilmDescription] = useState("Select a movie");
   const [showPreviousButton, setShowPreviousButton] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
-  // const { id, name, age, email } = student //destructuring data from API
+  const [genreMapping, setGenreMapping] = useState([{}]);
+
   const popAndStoreFilmDescription = (filmDescription) => {
     setFilmDescription(filmDescription);
     setShowPopUp(true);
   };
-
   const hidePopUp = () => {
-    console.log("Hello World");
     setShowPopUp(false);
   };
 
@@ -31,12 +31,21 @@ const TrendingFilmsTable = (props) => {
   useEffect(() => {
     (async () => {
       const tmdbApiData = await TMDBApiCaller(currentPage);
+      filmGenreMapping(tmdbApiData.listOfGenres);
       setTrendingFilms(tmdbApiData.listOfTrendingFilms);
     })();
   }, [currentPage]);
 
   useEffect(displayPreviousButton);
 
+  const filmGenreMapping = (listOfGenres) => {
+    var genres = {};
+    listOfGenres.map((object) => {
+      genres[object.id] = object.name;
+    });
+    setGenreMapping(genres);
+    console.log(genreMapping);
+  };
   return (
     <div>
       <h1>Trending Films</h1>
@@ -48,10 +57,11 @@ const TrendingFilmsTable = (props) => {
             <th>Average Vote</th>
             <th>Vote Count</th>
             <th>Popularity</th>
+            <th>Genre</th>
           </tr>
         </thead>
         <tbody>
-          {trendingFilms.map((film) => (
+          {trendingFilms.map((film, index) => (
             <tr key={film.id}>
               <td>
                 <a
@@ -64,6 +74,19 @@ const TrendingFilmsTable = (props) => {
               <td>{film.vote_average}</td>
               <td>{film.vote_count}</td>
               <td>{film.popularity}</td>
+              <td>
+                {film.genre_ids.map((id) => {
+                  if (genreName[index] != null) {
+                    genreName[index] =
+                      genreName[index].toString() +
+                      ", " +
+                      genreMapping[id].toString();
+                  } else {
+                    genreName[index] = genreMapping[id].toString();
+                  }
+                })}
+                {genreName[index]}
+              </td>
             </tr>
           ))}
         </tbody>
