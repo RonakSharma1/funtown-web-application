@@ -44,7 +44,6 @@ const TrendingFilmsTable = (props) => {
       genres[object.id] = object.name;
     });
     setGenreMapping(genres);
-    console.log(genreMapping);
   };
   return (
     <div>
