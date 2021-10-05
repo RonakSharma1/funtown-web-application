@@ -38,8 +38,8 @@ To use an existing image, run the following commands
 ### Creating new image
 To create a new image, run the following commands
  - `docker login`
- - `docker build .` : Uses `Dockerfile` to create a production build and store the static `html` files etc on `nginx` server. This is used to run the production build
+ - `docker build -t givenName .` : Uses `Dockerfile` to create a production build and store the static `html` files etc on `nginx` server. This is used to run the production build
  - `docker push` : Pushes image to DockerHub
- - `docker run -p 3000:3000 ronaksharma/multi-funtownapp`: Runs the image using nginx server on port 3000 (localhost:docker)
+ - `docker run -p 3000:3000 givenName`: Runs the image using nginx server on port 3000 (localhost:docker)
  
  Note: This will push the image to your dockerHub and will not update the existing image
