@@ -43,3 +43,6 @@ To create a new image, run the following commands
  - `docker run -p 3000:3000 givenName`: Runs the image using nginx server on port 3000 (localhost:docker)
  
  Note: This will push the image to your dockerHub and will not update the existing image
+ 
+### Testing running image
+To test any running image, you can naviage to [http://localhost:3000](http://localhost:3000)
