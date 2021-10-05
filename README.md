@@ -9,10 +9,6 @@ In the project directory, you can run:
 Runs the app in the development mode.
 Naviagate [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
 ## Docker
 
 - Ensure this repo i.e.[FunTown-Web-App](https://github.com/RonakSharma1/funtown-web-application) and [FunTown-Server](https://github.com/RonakSharma1/funtown-web-application-express-server) share a common root directory
