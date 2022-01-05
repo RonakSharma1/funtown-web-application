@@ -3,8 +3,9 @@ import axios from "axios";
 // Also when returning an empty <div>, it is an indication to convert to a function instead of component
 export default async (numberOfParticipants) => {
   // const expressServerBoredApiUrl = "http://localhost:5000/boredApi"; Uncomment this and comment below to run locally
-  const expressServerBoredApiUrl = "https://usvogkz959.execute-api.us-east-1.amazonaws.com/boredApi";
-  
+  const expressServerBoredApiUrl =
+    "https://usvogkz959.execute-api.us-east-1.amazonaws.com/boredApi";
+
   try {
     const boredApiData = await axios.get(expressServerBoredApiUrl, {
       params: {
