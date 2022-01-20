@@ -9,7 +9,7 @@
 
 ## Stretch Objectives
 - Host the application on Cloud using AWS
-- Gain knowledge about Docker
+- Create Docker images of this application
 
 # Requirements
 - The user shall enter their name and number of friends which will be used by the app to predict the activity they could do 
